@@ -1031,6 +1031,9 @@ export class ChatDebugFileLoggerService extends Disposable implements IChatDebug
 						...(span.attributes[GenAiAttr.USAGE_CACHE_READ_INPUT_TOKENS] !== undefined
 							? { cachedTokens: asNumber(span.attributes[GenAiAttr.USAGE_CACHE_READ_INPUT_TOKENS]) }
 							: {}),
+						...(span.attributes[CopilotChatAttr.MAX_PROMPT_TOKENS] !== undefined
+							? { maxInputTokens: asNumber(span.attributes[CopilotChatAttr.MAX_PROMPT_TOKENS]) }
+							: {}),
 						...(span.attributes[CopilotChatAttr.TIME_TO_FIRST_TOKEN] !== undefined
 							? { ttft: asNumber(span.attributes[CopilotChatAttr.TIME_TO_FIRST_TOKEN]) }
 							: {}),
